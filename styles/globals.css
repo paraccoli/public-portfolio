@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import cyberpunk styles */
+@import './cyberpunk.css';
+
+/* カスタムベーススタイル */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-gray-900 text-white;
+    font-feature-settings: "palt";
+  }
+
+  /* スクロールバーのカスタマイズ */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+  }
+}
+
+/* カスタムユーティリティクラス */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500;
+  }
+}
+
+/* カスタムコンポーネント */
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-md font-medium transition-colors;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-700 hover:bg-gray-600;
+  }
+  
+  .card {
+    @apply bg-gray-800 rounded-xl border border-gray-700 overflow-hidden;
+  }
+
+  /* サイバーパンク風ボタン */
+  .cyber-button-primary {
+    @apply px-6 py-3 rounded-md font-medium relative overflow-hidden;
+    background: linear-gradient(45deg, #0891b2, #6d28d9);
+    border: 1px solid rgba(56, 189, 248, 0.5);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .cyber-button-primary:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(56, 189, 248, 0.2),
+      transparent
+    );
+    transition: all 0.6s ease;
+  }
+  
+  .cyber-button-primary:hover:before {
+    left: 100%;
+  }
+  
+  .cyber-button-secondary {
+    @apply px-6 py-3 rounded-md font-medium relative overflow-hidden;
+    background: linear-gradient(45deg, #7e22ce, #3730a3);
+    border: 1px solid rgba(147, 51, 234, 0.5);
+    box-shadow: 0 0 10px rgba(147, 51, 234, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .cyber-button-secondary:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(147, 51, 234, 0.2),
+      transparent
+    );
+    transition: all 0.6s ease;
+  }
+  
+  .cyber-button-secondary:hover:before {
+    left: 100%;
+  }
+
+  /* サイバーパンク風カード */
+  .cyber-card {
+    @apply bg-gray-800 p-6 rounded-xl relative overflow-hidden;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .cyber-card:hover {
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+    transform: translateY(-5px);
+  }
+  
+  .cyber-card:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, #0891b2, #6d28d9);
+  }
+
+  /* サイバーパンク風見出し */
+  .cyber-heading {
+    position: relative;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+  }
+  
+  .cyber-heading:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 100px;
+    height: 3px;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #0891b2, #6d28d9);
+  }
+}
+
+/* アニメーション */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* グリッド背景のカスタマイズ */
+.bg-grid-pattern {
+  background-size: 30px 30px;
+  background-image: 
+    linear-gradient(to right, rgba(20, 184, 228, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 184, 228, 0.05) 1px, transparent 1px);
+}
+
+/* サイバーパンク風の背景スタイル */
+.cyberpunk-bg {
+  background-color: #0f1014;
+  background-image: 
+    linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%),
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.1), transparent 70%),
+    radial-gradient(circle at bottom left, rgba(168, 85, 247, 0.1), transparent 70%);
+  background-attachment: fixed;
+}
+
+/* ヘッダー用のz-index設定 */
+header {
+  z-index: 50;
+}
+
+/* フッター用のスタイル */
+footer {
+  z-index: 10;
+}
+
+/* サイバースキャンライン */
+.cyber-scan-line {
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.2), transparent);
+  transform: translateX(-50%);
+  animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* サイバーパンク風のボックスシャドウ */
+.cyberpunk-shadow {
+  box-shadow: 0 4px 30px rgba(56, 189, 248, 0.2), 0 0 60px rgba(56, 189, 248, 0.3);
+}
+
+/* サイバーパンク風のテキストシャドウ */
+.cyberpunk-text-shadow {
+  text-shadow: 0 2px 10px rgba(56, 189, 248, 0.5), 0 0 20px rgba(56, 189, 248, 0.3);
+}

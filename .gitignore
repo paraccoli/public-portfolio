@@ -1,0 +1,10 @@
+# .gitignore
+.env.local
+.env.production
+.env.development.local
+.next/
+node_modules/
+out/
+.DS_Store
+.idea/
+*.log
