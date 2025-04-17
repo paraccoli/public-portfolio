@@ -133,7 +133,6 @@
 
 ### 英語版
 
-```markdown
 # Paraccoli Portfolio - OSS Version
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-blue)](https://portfolio.paraccoli.com/)
